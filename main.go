@@ -9,9 +9,11 @@ import (
 	"os"
 
 	"github.com/gin-gonic/gin"
+
+	"github.com/undeadops/gimlet/healthz"
 )
 
-var version = "1.0.0"
+var version = "2.0.0"
 
 func index(c *gin.Context) {
 	content := gin.H{"version": version}
@@ -28,6 +30,7 @@ func main() {
 	router := gin.Default()
 
 	router.GET("/", index)
+	router.GET("/healthz", healthz.Status)
 	fmt.Printf("HTTP service listening on %s\n", httpAddr)
 	router.Run(":" + httpAddr)
 }
