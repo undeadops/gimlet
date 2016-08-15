@@ -16,7 +16,8 @@ import (
 var version = "2.0.0"
 
 func index(c *gin.Context) {
-	content := gin.H{"version": version}
+	hostname, _ := os.Hostname()
+	content := gin.H{"version": version, "host": hostname}
 	c.JSON(200, content)
 }
 
