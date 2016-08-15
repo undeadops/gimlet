@@ -13,7 +13,7 @@ import (
 	"github.com/undeadops/gimlet/healthz"
 )
 
-var version = "2.0.0"
+var version = "1.0.0"
 
 func index(c *gin.Context) {
 	hostname, _ := os.Hostname()
