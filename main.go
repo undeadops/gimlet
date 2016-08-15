@@ -24,7 +24,8 @@ func index(c *gin.Context) {
 func main() {
 	log.Println("Starting gimlet... ")
 	gin.SetMode(gin.ReleaseMode)
-	httpAddr := os.Getenv("PORT")
+	// Potentially make this more cross functional for kubernetes
+	httpAddr := os.Getenv("NOMAD_PORT_http")
 	if httpAddr == "" {
 		httpAddr = "8080"
 	}
